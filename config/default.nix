@@ -5,7 +5,6 @@
 }: {
   # Import all your configuration modules here
   imports = [
-    ./bufferline.nix
     ./telescope.nix
     ./completions.nix
     ./treesitter.nix
@@ -74,7 +73,7 @@
 
       markdown-preview = {
         enable = true;
-        autoStart = true;
+        autoStart = false;
         theme = "dark";
         browser = "vimb";
         #        browserFunc = ''
