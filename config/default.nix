@@ -51,7 +51,12 @@
       oil.enable = true;
 
       # Enable treesitter with a bunch of parsers by default
-      treesitter.enable = true;
+      treesitter = {
+	enable = true;
+	ensureInstalled = [
+	  "rust"
+	];
+      };
 
       # Rename incrementally with LSP support
       inc-rename.enable = true;
