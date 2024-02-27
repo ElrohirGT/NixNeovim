@@ -9,24 +9,24 @@
   ];
 
   config = {
-	# :h option-list
+    # :h option-list
     options = {
       number = true;
       relativenumber = true;
 
       shiftwidth = 2;
-	  tabstop = 2;
-	  softtabstop = 2;
+      tabstop = 2;
+      softtabstop = 2;
 
-	  expandtab = false;
-	  hlsearch = false;
-	  incsearch = true;
+      expandtab = false;
+      hlsearch = false;
+      incsearch = true;
 
-	  scrolloff = 8;
-	  updatetime = 50;
-	  colorcolumn = "180";
+      scrolloff = 8;
+      updatetime = 50;
+      colorcolumn = "180";
 
-	  spell = true;
+      spell = true;
     };
 
     globals = {
@@ -36,8 +36,8 @@
 
     colorschemes.kanagawa.enable = true;
     plugins = {
-	  # Lateral file explorer
-	  nvim-tree.enable = true;
+      # Lateral file explorer
+      nvim-tree.enable = true;
 
       # Status bar
       lualine.enable = true;
@@ -88,13 +88,13 @@
       markdown-preview = {
         enable = true;
         autoStart = true;
-		theme = "dark";
-		browser = "vimb";
-#        browserFunc = ''
-#          function OpenMarkdownPreview (url)
-#          	execute "silent ! vimb " . a:url . " &"
-#          endfunction
-#        '';
+        theme = "dark";
+        browser = "vimb";
+        #        browserFunc = ''
+        #          function OpenMarkdownPreview (url)
+        #          	execute "silent ! vimb " . a:url . " &"
+        #          endfunction
+        #        '';
       };
       lsp = {
         enable = true;
@@ -121,8 +121,8 @@
           # Nix
           nil_ls.enable = true;
 
-		  # Markdown
-		  marksman.enable = true;
+          # Markdown
+          marksman.enable = true;
         };
       };
 
@@ -137,23 +137,23 @@
         ];
       };
       cmp-nvim-lsp.enable = true;
-	  cmp-nvim-lsp-signature-help.enable = true;
-	  cmp-path.enable = true;
-	  cmp-buffer.enable = true;
+      cmp-nvim-lsp-signature-help.enable = true;
+      cmp-path.enable = true;
+      cmp-buffer.enable = true;
     };
 
     keymaps = [
-	  # Markdown preview controls
-	  {
-		mode = "n";
-		key = "<leader>ms";
-		action = ":MarkdownPreviewStop<CR>";
-	  }
-	  {
-		mode = "n";
-		key = "<leader>mp";
-		action = ":MarkdownPreview<CR>";
-	  }
+      # Markdown preview controls
+      {
+        mode = "n";
+        key = "<leader>ms";
+        action = ":MarkdownPreviewStop<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>mp";
+        action = ":MarkdownPreview<CR>";
+      }
 
       # Change spelling
       {
@@ -314,16 +314,16 @@
         action = "<cmd>TroubleToggle lsp_references<cr>";
       }
 
-	  # Vim fugitive
-	  {
-		mode = "n";
-		key = "<leader>gl";
-		action = ":Git log --oneline --graph<CR>";
-	  }
+      # Vim fugitive
+      {
+        mode = "n";
+        key = "<leader>gl";
+        action = ":Git log --oneline --graph<CR>";
+      }
     ];
 
     extraPlugins = with pkgs; [
-	  ripgrep # For Telescope
+      ripgrep # For Telescope
       vimPlugins.nvim-web-devicons
 
       # SQL LSP setup
