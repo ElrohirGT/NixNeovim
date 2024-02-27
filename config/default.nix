@@ -52,10 +52,33 @@
 
       # Enable treesitter with a bunch of parsers by default
       treesitter = {
-	enable = true;
-	ensureInstalled = [
-	  "rust"
-	];
+        enable = true;
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+          # General
+          nix
+          regex
+          python
+          go
+          proto
+          bash
+          sql
+          lua
+
+          # configs
+          yaml
+          json
+
+          # Rust
+          rust
+          toml
+
+          # Web
+          typescript
+          javascript
+          html
+          css
+          markdown
+        ];
       };
 
       # Rename incrementally with LSP support
@@ -119,7 +142,6 @@
           marksman.enable = true;
         };
       };
-
     };
 
     keymaps = [
