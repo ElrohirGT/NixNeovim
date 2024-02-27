@@ -8,6 +8,7 @@
     ./bufferline.nix
     ./telescope.nix
     ./completions.nix
+    ./treesitter.nix
   ];
 
   config = {
@@ -49,37 +50,6 @@
 
       # Manage files in neovim buffer
       oil.enable = true;
-
-      # Enable treesitter with a bunch of parsers by default
-      treesitter = {
-        enable = true;
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; [
-          # General
-          nix
-          regex
-          python
-          go
-          proto
-          bash
-          sql
-          lua
-
-          # configs
-          yaml
-          json
-
-          # Rust
-          rust
-          toml
-
-          # Web
-          typescript
-          javascript
-          html
-          css
-          markdown
-        ];
-      };
 
       # Rename incrementally with LSP support
       inc-rename.enable = true;
