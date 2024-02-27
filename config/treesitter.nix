@@ -2,7 +2,7 @@
   # Enable treesitter with a bunch of parsers by default
   plugins.treesitter = {
     enable = true;
-    grammarPackages = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       # General
       nix
       regex
@@ -11,7 +11,12 @@
       proto
       bash
       sql
+			c
+			cpp
+
+			# Neovim config
       lua
+			vimdoc
 
       # configs
       yaml
