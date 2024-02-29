@@ -7,6 +7,13 @@
         "<leader>k" = "goto_prev";
         "<leader>j" = "goto_next";
       };
+      lspBuf = {
+        K = "hover";
+        gD = "references";
+        gd = "definition";
+        gi = "implementation";
+        gt = "type_definition";
+      };
     };
     servers = {
       # Javascript / Typescript
