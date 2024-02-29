@@ -11,13 +11,13 @@
       proto
       bash
       sql
-			c
-			cpp
-			latex
+      c
+      cpp
+      latex
 
-			# Neovim config
+      # Neovim config
       lua
-			vimdoc
+      vimdoc
 
       # configs
       yaml

@@ -35,23 +35,23 @@
             # inherit (inputs) foo;
           };
         };
-				nixVimModuleMinimal = {
-					inherit pkgs;
-					module = import ./config/minimal.nix;
-				};
+        nixVimModuleMinimal = {
+          inherit pkgs;
+          module = import ./config/minimal.nix;
+        };
         nvimFull = nixvim'.makeNixvimWithModule nixVimModuleFull;
         nvimMinimal = nixvim'.makeNixvimWithModule nixVimModuleMinimal;
       in {
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
           default = nixvimLib.check.mkTestDerivationFromNixvimModule nixVimModuleFull;
-					minimal = nixvimLib.check.mkTestDerivationFromNixvimModule nvimMinimal;
+          minimal = nixvimLib.check.mkTestDerivationFromNixvimModule nvimMinimal;
         };
 
         packages = {
           # Lets you run `nix run .` to start nixvim
           default = nvimFull;
-					minimal = nvimMinimal;
+          minimal = nvimMinimal;
         };
       };
     };
