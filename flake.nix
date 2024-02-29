@@ -27,7 +27,7 @@
       }: let
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
-        nixvimModule = {
+        nixVimModuleFull = {
           inherit pkgs;
           module = import ./config; # import the module directly
           # You can use `extraSpecialArgs` to pass additional arguments to your module files
@@ -35,16 +35,23 @@
             # inherit (inputs) foo;
           };
         };
-        nvim = nixvim'.makeNixvimWithModule nixvimModule;
+				nixVimModuleMinimal = {
+					inherit pkgs;
+					module = import ./config/minimal.nix;
+				};
+        nvimFull = nixvim'.makeNixvimWithModule nixVimModuleFull;
+        nvimMinimal = nixvim'.makeNixvimWithModule nixVimModuleMinimal;
       in {
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixVimModuleFull;
+					minimal = nixvimLib.check.mkTestDerivationFromNixvimModule nvimMinimal;
         };
 
         packages = {
           # Lets you run `nix run .` to start nixvim
-          default = nvim;
+          default = nvimFull;
+					minimal = nvimMinimal;
         };
       };
     };
