@@ -8,6 +8,8 @@
     ./telescope.nix
     ./completions.nix
     ./treesitter.nix
+		./markdown_preview.nix
+		./language_servers.nix
   ];
 
   config = {
@@ -70,47 +72,6 @@
 
       # Support for surrounding things with things
       surround.enable = true;
-
-      markdown-preview = {
-        enable = true;
-        autoStart = false;
-        theme = "dark";
-        browser = "vimb";
-        #        browserFunc = ''
-        #          function OpenMarkdownPreview (url)
-        #          	execute "silent ! vimb " . a:url . " &"
-        #          endfunction
-        #        '';
-      };
-      lsp = {
-        enable = true;
-        keymaps = {
-          silent = true;
-          diagnostic = {
-            "<leader>k" = "goto_prev";
-            "<leader>j" = "goto_next";
-          };
-        };
-        servers = {
-          # Javascript / Typescript
-          tsserver.enable = true;
-
-          # Lua
-          lua-ls.enable = true;
-
-          # Go
-          gopls.enable = true;
-
-          # Bash
-          bashls.enable = true;
-
-          # Nix
-          nil_ls.enable = true;
-
-          # Markdown
-          marksman.enable = true;
-        };
-      };
     };
 
     keymaps = [
