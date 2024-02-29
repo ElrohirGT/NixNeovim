@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins.telescope = {
     # Search through files inside workspace
     enable = true;
@@ -11,4 +11,8 @@
       "<leader>s" = "lsp_workspace_symbols";
     };
   };
+
+  extraPackages = with pkgs; [
+    ripgrep
+  ];
 }
