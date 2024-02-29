@@ -10,6 +10,7 @@
     ./treesitter.nix
 		./markdown_preview.nix
 		./language_servers.nix
+		./error_panes.nix
   ];
 
   config = {
@@ -64,9 +65,6 @@
       # TODO and friends formatting for comments
       todo-comments.enable = true;
 
-      # Better error messages
-      trouble.enable = true;
-
       # Support for nvim comments
       comment-nvim.enable = true;
 
@@ -75,42 +73,6 @@
     };
 
     keymaps = [
-      # Markdown preview controls
-      {
-        mode = "n";
-        key = "<leader>ms";
-        action = ":MarkdownPreviewStop<CR>";
-      }
-      {
-        mode = "n";
-        key = "<leader>mp";
-        action = ":MarkdownPreview<CR>";
-      }
-
-      # Change spelling
-      {
-        key = "<leader>ls";
-        action = ":set spell spelllang=es_gt<CR>";
-        mode = "n";
-      }
-      {
-        key = "<leader>le";
-        action = ":set spell spelllang=en_us<CR>";
-        mode = "n";
-      }
-
-      # Enable/Disable wordwrap
-      {
-        key = "<leader>we";
-        action = ":set wrap<CR>";
-        mode = "n";
-      }
-      {
-        key = "<leader>ws";
-        action = ":set nowrap<CR>";
-        mode = "n";
-      }
-
       # Append previous line to current line
       {
         mode = "v";
@@ -212,38 +174,6 @@
         mode = "n";
         key = "<leader>rn";
         action = ":IncRename";
-      }
-
-      # Error panes logic
-      {
-        mode = "n";
-        key = "<leader>xx";
-        action = "<cmd>TroubleToggle<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>xw";
-        action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>xd";
-        action = "<cmd>TroubleToggle document_diagnostics<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>xq";
-        action = "<cmd>TroubleToggle quickfix<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>xl";
-        action = "<cmd>TroubleToggle loclist<cr>";
-      }
-      {
-        mode = "n";
-        key = "gR";
-        action = "<cmd>TroubleToggle lsp_references<cr>";
       }
 
       # Vim fugitive
