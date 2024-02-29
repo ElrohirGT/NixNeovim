@@ -62,6 +62,12 @@
       # Rust setup
       rustaceanvim.enable = true;
 
+			# LaTex setup
+			vimtex = {
+				enable = true;
+				texlivePackage = null; # Dont install any package
+			};
+
       # TODO and friends formatting for comments
       todo-comments.enable = true;
 

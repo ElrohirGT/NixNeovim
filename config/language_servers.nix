@@ -33,6 +33,9 @@
 
       # Markdown
       marksman.enable = true;
+
+			# LaTex
+			texlab.enable = true;
     };
   };
 }

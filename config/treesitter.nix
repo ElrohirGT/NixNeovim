@@ -13,6 +13,7 @@
       sql
 			c
 			cpp
+			latex
 
 			# Neovim config
       lua
