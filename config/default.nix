@@ -9,5 +9,6 @@
     ./modules/language_servers.nix
     ./modules/error_panes.nix
     ./modules/mappings.nix
+		./modules/snippets.nix
   ];
 }
