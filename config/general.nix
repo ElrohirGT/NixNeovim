@@ -1,4 +1,17 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  options,
+  ...
+}: {
+  options.general.isDefault = with lib;
+    mkOption {
+      type = types.nullOr types.bool;
+      description = "If set to false, some functionality will be disabled to save disk space.";
+      default = true;
+    };
+
   config = {
     # :h option-list
     options = {
@@ -33,11 +46,8 @@
       # Status bar
       lualine.enable = true;
 
-      # Snippet engine
-      luasnip.enable = true;
-
       # Manage files in neovim buffer
-      oil.enable = true;
+      oil.enable = config.general.isDefault;
 
       # Rename incrementally with LSP support
       inc-rename.enable = true;
@@ -46,11 +56,11 @@
       tagbar.enable = true;
 
       # Rust setup
-      rustaceanvim.enable = true;
+      rustaceanvim.enable = config.general.isDefault;
 
       # LaTex setup
       vimtex = {
-        enable = true;
+        enable = config.general.isDefault;
         texlivePackage = null; # Dont install any package
       };
 
@@ -65,40 +75,7 @@
     };
 
     extraPlugins = with pkgs; [
-      ripgrep # For Telescope
       vimPlugins.nvim-web-devicons
-
-      # SQL LSP setup
-      sqls
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "sqls.nvim";
-        src = pkgs.fetchFromGitHub {
-          owner = "nanotee";
-          repo = "sqls.nvim";
-          rev = "4b1274b5b44c48ce784aac23747192f5d9d26207";
-          # SHA-256 obtained using:
-          # nix-prefetch-url --unpack https://github.com/nanotee/sqls.nvim/archive/4b1274b5b44c48ce784aac23747192f5d9d26207.tar.gz
-          sha256 = "0jxgsajl7plw025a0h6r3cifrj0jyszn697247ggy0arlfvnx8cc";
-        };
-      })
     ];
-    extraConfigLua = ''
-        	require('lspconfig').sqls.setup{
-          on_attach = function(client, bufnr)
-            require('sqls').on_attach(client, bufnr) -- require sqls.nvim
-          end;
-          settings = {
-            sqls = {
-              connections = {
-       {
-                  driver = 'postgresql',
-      -- change the database attribute to whatever DB we're using right now
-                  dataSourceName = 'host=localhost port=5432 user=postgres database=postgres',
-                },
-              },
-            },
-          };
-        }
-    '';
   };
 }
