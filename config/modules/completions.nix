@@ -1,14 +1,14 @@
 {
   lib,
   config,
-	options,
+  options,
   ...
 }: {
-	options.completions.isDefault = lib.mkOption {
-		type = lib.types.nullOr lib.types.bool;
-		description = "If set to false, some functionality will be disabled to save disk space.";
-		default = true;
-	};
+  options.completions.isDefault = lib.mkOption {
+    type = lib.types.nullOr lib.types.bool;
+    description = "If set to false, some functionality will be disabled to save disk space.";
+    default = true;
+  };
 
   config = {
     plugins = {
@@ -34,12 +34,18 @@
         preselect = "None";
 
         autoEnableSources = false;
-        sources = [
-          {name = "nvim_lsp";}
-          {name = "path";}
-          {name = "buffer";}
-          {name = "treesitter";}
-        ];
+        sources =
+          if config.completions.isDefault
+          then [
+            {name = "nvim_lsp";}
+            {name = "path";}
+            {name = "buffer";}
+            {name = "treesitter";}
+          ]
+          else [
+            {name = "path";}
+            {name = "buffer";}
+          ];
       };
 
       cmp-nvim-lsp.enable = config.completions.isDefault;

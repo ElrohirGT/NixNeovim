@@ -30,7 +30,7 @@
       };
       servers = {
         # Javascript / Typescript
-        tsserver.enable = true;
+        tsserver.enable = config.language-servers.isDefault;
 
         # Lua
         lua-ls.enable = true;
