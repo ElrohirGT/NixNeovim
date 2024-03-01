@@ -38,4 +38,7 @@
       texlab.enable = true;
     };
   };
+
+	# Added linting
+	plugins.lint.enable = true;
 }
