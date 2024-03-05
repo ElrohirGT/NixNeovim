@@ -100,7 +100,7 @@
     {
       mode = "n";
       key = "<leader>rn";
-      action = ":IncRename";
+      action = ":IncRename ";
     }
 
     # Vim fugitive

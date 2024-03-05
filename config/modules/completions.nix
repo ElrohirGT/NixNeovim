@@ -33,28 +33,40 @@
           };
           "<CR>" = "cmp.mapping.confirm({ select = true })";
         };
+
+        formatting.format = ''
+          function(entry, item)
+           local menu_icon ={
+            nvim_lsp = "λ",
+            vsnip = "⋗",
+            buffer = "Ω",
+            path = "🖫",
+           }
+           item.menu = menu_icon[entry.source.name]
+           return item
+          end
+        '';
+
         preselect = "None";
-
-        autoEnableSources = false;
+        autoEnableSources = true;
         sources =
-          if config.completions.isDefault
-          then [
-            {name = "nvim_lsp";}
+          [
             {name = "path";}
+            {name = "calc";}
             {name = "buffer";}
-            {name = "treesitter";}
           ]
-          else [
-            {name = "path";}
-            {name = "buffer";}
-          ];
+          ++ (
+            if config.completions.isDefault
+            then [
+              {name = "nvim_lsp";}
+              {name = "treesitter";}
+              {name = "nvim_lsp_signature_help";}
+              {name = "nvim_lua";}
+              {name = "luasnip";}
+            ]
+            else []
+          );
       };
-
-      cmp-nvim-lsp.enable = config.completions.isDefault;
-      cmp-nvim-lsp-signature-help.enable = config.completions.isDefault;
-      cmp-path.enable = true;
-      cmp-buffer.enable = true;
-      cmp-treesitter.enable = config.completions.isDefault;
     };
   };
 }

@@ -31,6 +31,7 @@
       colorcolumn = "180";
 
       spell = true;
+      termguicolors = true;
     };
 
     autoGroups = {
@@ -101,5 +102,13 @@
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
     ];
+
+    extraLuaConfig = ''
+      # Diagnostic Icons
+         sign({name = "DiagnosticSignError", text = ""})
+         sign({name = "DiagnosticSignWarn", text = ""})
+         sign({name = "DiagnosticSignHint", text = ""})
+         sign({name = "DiagnosticSignInfo", text = ""})
+    '';
   };
 }
