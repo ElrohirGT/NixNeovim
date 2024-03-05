@@ -15,6 +15,10 @@
         action = "buffers";
         desc = "[F]ind on [B]uffers";
       };
+      "<leader>fc" = {
+        action = "current_buffer_fuzzy_find";
+        desc = "[F]ind on [C]urrent buffer";
+      };
       "<leader>fh" = {
         action = "help_tags";
         desc = "[F]ind [H]elp";
@@ -35,10 +39,10 @@
         action = "lsp_workspace_symbols";
         desc = "[F]ind workspace [S]ymbols";
       };
-			"<leader>fw" = {
-				action = "grep_string";
-				desc = "[F]ind current [W]ord";
-			};
+      "<leader>fw" = {
+        action = "grep_string";
+        desc = "[F]ind current [W]ord";
+      };
     };
   };
 

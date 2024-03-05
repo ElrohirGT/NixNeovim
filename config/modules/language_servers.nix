@@ -22,7 +22,7 @@
           "<leader>e" = "open_float";
         };
 
-				# All keymaps of the form vim.lsp.buf.<action>
+        # All keymaps of the form vim.lsp.buf.<action>
         lspBuf = {
           K = "hover";
           gr = {
@@ -45,10 +45,10 @@
             action = "code_action";
             desc = "[C]ode [A]ctions";
           };
-					"<leader>rn" = {
-						action = "rename";
-						desc = "[R]e[n]ame";
-					};
+          "<leader>rn" = {
+            action = "rename";
+            desc = "[R]e[n]ame";
+          };
         };
       };
       servers = {
