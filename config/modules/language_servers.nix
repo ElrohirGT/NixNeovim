@@ -97,22 +97,22 @@
     extraConfigLua =
       if config.language-servers.isDefault
       then ''
-          	require('lspconfig').sqls.setup{
-            on_attach = function(client, bufnr)
-              require('sqls').on_attach(client, bufnr) -- require sqls.nvim
-            end;
-            settings = {
-              sqls = {
-                connections = {
-         {
-                    driver = 'postgresql',
-        -- change the database attribute to whatever DB we're using right now
-                    dataSourceName = 'host=localhost port=5432 user=postgres database=postgres',
-                  },
-                },
-              },
-            };
-          }
+         	require('lspconfig').sqls.setup{
+           on_attach = function(client, bufnr)
+             require('sqls').on_attach(client, bufnr) -- require sqls.nvim
+           end;
+           settings = {
+             sqls = {
+               connections = {
+        {
+                   driver = 'postgresql',
+        	-- change the database attribute to whatever DB we're using right now
+                   dataSourceName = 'host=localhost port=5432 user=postgres database=postgres',
+                 },
+               },
+             },
+           };
+         }
       ''
       else "";
   };
