@@ -26,6 +26,7 @@
           gd = "definition";
           gi = "implementation";
           gt = "type_definition";
+          "<leader>a" = "code_action";
         };
       };
       servers = {
