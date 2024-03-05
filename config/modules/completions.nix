@@ -19,13 +19,15 @@
         mapping = {
           "<C-d>" = "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = "cmp.mapping.scroll_docs(4)";
+
+          # Manually trigger a completion from nvim-cmp
           "<C-Space>" = "cmp.mapping.complete()";
           "<C-e>" = "cmp.mapping.close()";
-          "<Tab>" = {
+          "<C-n>" = {
             modes = ["i" "s"];
             action = "cmp.mapping.select_next_item()";
           };
-          "<S-Tab>" = {
+          "<C-p>" = {
             modes = ["i" "s"];
             action = "cmp.mapping.select_prev_item()";
           };

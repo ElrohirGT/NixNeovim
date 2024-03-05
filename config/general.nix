@@ -33,6 +33,27 @@
       spell = true;
     };
 
+    autoGroups = {
+      "kickstart-highlight-yank" = {
+        clear = true;
+      };
+    };
+
+    autoCmd = [
+      {
+        event = "TextYankPost";
+        desc = "Highlight when yanking text";
+        group = "kickstart-highlight-yank";
+        callback = {
+          __raw = ''
+            function ()
+            	vim.highlight.on_yank()
+            end
+          '';
+        };
+      }
+    ];
+
     globals = {
       mapleader = " ";
       maplocalleader = " ";
@@ -40,6 +61,9 @@
 
     colorschemes.kanagawa.enable = true;
     plugins = {
+      # Plugin to find which key does what
+      which-key.enable = true;
+
       # Lateral file explorer
       nvim-tree.enable = true;
 

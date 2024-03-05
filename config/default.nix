@@ -10,5 +10,6 @@
     ./modules/error_panes.nix
     ./modules/mappings.nix
     ./modules/snippets.nix
+		./modules/formatting.nix
   ];
 }

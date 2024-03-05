@@ -19,14 +19,36 @@
         diagnostic = {
           "<leader>k" = "goto_prev";
           "<leader>j" = "goto_next";
+          "<leader>e" = "open_float";
         };
+
+				# All keymaps of the form vim.lsp.buf.<action>
         lspBuf = {
           K = "hover";
-          gD = "references";
-          gd = "definition";
-          gi = "implementation";
-          gt = "type_definition";
-          "<leader>a" = "code_action";
+          gr = {
+            action = "references";
+            desc = "[G]oto [R]eferences";
+          };
+          gd = {
+            action = "definition";
+            desc = "[G]oto [D]efinition";
+          };
+          gi = {
+            action = "implementation";
+            desc = "[G]oto [I]mplementation";
+          };
+          gt = {
+            action = "type_definition";
+            desc = "[G]oto [T]ype definitions";
+          };
+          "<leader>ca" = {
+            action = "code_action";
+            desc = "[C]ode [A]ctions";
+          };
+					"<leader>rn" = {
+						action = "rename";
+						desc = "[R]e[n]ame";
+					};
         };
       };
       servers = {
