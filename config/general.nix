@@ -97,10 +97,17 @@
 
       # Support for surrounding things with things
       surround.enable = true;
+
+      # PlantUML support
+      plantuml-syntax = {
+        enable = config.general.isDefault;
+        executableScript = "${pkgs.plantuml}/bin/plantuml";
+      };
     };
 
     extraPlugins = with pkgs; [
       vimPlugins.nvim-web-devicons
+      plantuml
     ];
 
     extraConfigLua = ''
