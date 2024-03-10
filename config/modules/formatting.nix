@@ -15,9 +15,7 @@
         args = ["format" "--dialect" "postgres" "$FILENAME" "&&" "cat" "$FILENAME"];
       };
       alejandra = {
-        "inherit" = false;
         command = "${pkgs.alejandra}/bin/alejandra";
-        args = ["$FILENAME"];
       };
       shfmt = {
         command = "${pkgs.shfmt}/bin/shfmt";
