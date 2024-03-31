@@ -1,3 +1,7 @@
+Archived
+===
+This repo has been archived because the configuration has been moved to [this repo](https://github.com/ElrohirGT/ConfigurationFiles).
+
 # NixVim configuration
 
 This template gives you a good starting point for configuring nixvim standalone.
